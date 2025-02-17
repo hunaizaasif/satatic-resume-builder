@@ -1,0 +1,146 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Interactive Resume Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #ff6f61; /* Updated to a different peach-like shade */
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #ff6f61; /* Consistent with the header color */
+            padding-bottom: 5px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #ff6f61; /* Button matches the new peach tone */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4d3b; /* Slightly darker peach on hover */
+        }
+        .resume-preview {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .resume-preview h1, .resume-preview h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Interactive Resume Builder</h1>
+    </header>
+    <div class="container">
+        <div class="section">
+            <h2>Personal Information</h2>
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email address">
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <div class="input-group">
+                <textarea id="summary" rows="4" placeholder="Write a brief summary about yourself"></textarea>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Work Experience</h2>
+            <div class="input-group">
+                <label for="job-title">Job Title</label>
+                <input type="text" id="job-title" placeholder="Enter your job title">
+            </div>
+            <div class="input-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" placeholder="Enter the company name">
+            </div>
+            <div class="input-group">
+                <label for="experience">Description</label>
+                <textarea id="experience" rows="4" placeholder="Describe your role and responsibilities"></textarea>
+            </div>
+        </div>
+
+        <button onclick="generateResume()">Generate Resume</button>
+
+        <div class="resume-preview" id="resume-preview" style="display:none;">
+            <h1 id="preview-name"></h1>
+            <p><strong>Email:</strong> <span id="preview-email"></span></p>
+            <p><strong>Phone:</strong> <span id="preview-phone"></span></p>
+            <h2>Professional Summary</h2>
+            <p id="preview-summary"></p>
+            <h2>Work Experience</h2>
+            <p><strong>Job Title:</strong> <span id="preview-job-title"></span></p>
+            <p><strong>Company:</strong> <span id="preview-company"></span></p>
+            <p><strong>Description:</strong> <span id="preview-experience"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function generateResume() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const summary = document.getElementById('summary').value;
+            const jobTitle = document.getElementById('job-title').value;
+            const company = document.getElementById('company').value;
+            const experience = document.getElementById('experience').value;
+
+            document.getElementById('preview-name').innerText = name || 'Your Name';
+            document.getElementById('preview-email').innerText = email || 'your.email@example.com';
+            document.getElementById('preview-phone').innerText = phone || '(123) 456-7890';
+            document.getElementById('preview-summary').innerText = summary || 'No summary provided.';
+            document.getElementById('preview-job-title').innerText = jobTitle || 'Job Title';
+            document.getElementById('preview-company').innerText = company || 'Company Name';
+            document.getElementById('preview-experience').innerText = experience || 'No description provided.';
+
+            document.getElementById('resume-preview').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+```
